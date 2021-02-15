@@ -21,7 +21,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $fillable = [
-        'name', 'email',
+        'fullname', 'email', 'password',
     ];
 
     /**
@@ -29,7 +29,15 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      *
      * @var array
      */
-    protected $hidden = [
-        'password',
-    ];
+    // protected $hidden = [
+    //     'password',
+    // ];
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
 }
