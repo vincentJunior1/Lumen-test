@@ -24,6 +24,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'fullname', 'email', 'password',
     ];
 
+    public function phone()
+    {
+        return $this->hasOne('App\Models\Phone');
+    }
     /**
      * The attributes excluded from the model's JSON form.
      *

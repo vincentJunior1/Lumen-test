@@ -79,7 +79,10 @@ class UserController extends Controller
         for ($i = 0; $i < count($users); $i++) {
             $getUsers[$i] = [
                 'fullname' => $users[$i]->fullname,
-                'email' => $users[$i]->email
+                'email' => $users[$i]->email,
+                'device' => $users[$i]->device,
+                'phone' => $users[$i]->phone->number,
+
             ];
         };
         $return = [
